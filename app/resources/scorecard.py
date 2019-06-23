@@ -34,9 +34,12 @@ class Scorecard(object):
                             'and back in the pavilion'.format(batsman_name))
 
     def mark_out(self, batsman_name):
-        if batsman_name in self._scorecard_registry:
-            self._scorecard_registry[batsman_name]['balls_faced'] += 1
-            self._scorecard_registry[batsman_name]['not_out'] = False
+        if batsman_name not in self._scorecard_registry:
+            self._scorecard_registry[batsman_name] = \
+                Scorecard._default_factory_scorecard()
+
+        self._scorecard_registry[batsman_name]['balls_faced'] += 1
+        self._scorecard_registry[batsman_name]['not_out'] = False
 
     def print_scorecard(self):
         for batsmen, game_data in self._scorecard_registry.items():
