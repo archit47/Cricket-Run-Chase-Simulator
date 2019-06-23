@@ -3,7 +3,12 @@
 from abc import ABCMeta, abstractmethod
 from collections import OrderedDict
 import random
+import time
 import traceback
+
+
+# system random object
+SYSTEM_RANDOM = random.SystemRandom(int(time.time() * 1000))
 
 
 class GenericRandomNumberGenerator(object):
