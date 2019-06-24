@@ -12,15 +12,15 @@ class Commentary(object):
     -> Post-match summary
 
     This class provides utility methods for recording each of the 3 types
-    of commentaries. It is upto the user of the class to call whichever methods
-    are required in the process of storing the commentary line, and in the
-    order the user deems fit.
+    of commentaries. It is upto the user of the class' object to call whichever
+    methods are required in the process of storing the commentary line,
+    and in the order the user deems fit.
 
     NOTE:
         [1] This Commentary class, in the initial draft, is designed in the
         context of a run-chase.
-        [2] No validation-policy: this commentary is class is not expected
-        to perform data verifications. It still performs very minimal though.
+        [2] No validation-policy: this commentary class is not expected
+        to perform data validations. It still performs very minimal though.
     """
 
     def __init__(self):
