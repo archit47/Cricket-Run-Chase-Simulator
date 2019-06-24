@@ -3,7 +3,7 @@
 import os
 from app.models import Player
 from app.resources import GamePlay
-import optparse
+import argparse
 
 
 def get_team():
@@ -68,10 +68,22 @@ def main():
     Lets the game begin!
     """
 
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-rg', '--random-generator',
+                        dest='random_gen_class',
+                        help='Provide one of the stochastic schemes for '
+                             'generating random scores, takes one of the 2 '
+                             'values - \'random sampling\' or '
+                             '\'roulette selection\'',
+                        type=str)
+
+    # parse the given arguments if any
+    args = parser.parse_args()
+
     batting_lineup = get_team()
 
     # new Game instance
-    game = GamePlay(batting_lineup, 'random sampling')
+    game = GamePlay(batting_lineup, random_gen_class=args.random_gen_class)
     game.execute_run_chase()
 
 
