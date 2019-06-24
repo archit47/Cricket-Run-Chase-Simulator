@@ -33,7 +33,7 @@ The Random Generator class can provided at run-time via command line arguments. 
 * The program optionally takes command line argument: 
     >  __python -m app.main --help__
     
-* So, if you which to choose the random generator class for producing aleatory scores, then:
+* So, if you wish to choose the random generator class for producing aleatory scores, then:
 
     * For Random Sampling technique -
     > __python -m app.main -rg 'random sampling'__
