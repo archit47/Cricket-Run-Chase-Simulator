@@ -20,13 +20,19 @@ class Scorecard(object):
             'not_out': True,
         }
 
+    def add_player(self, batsman_name):
+        assert isinstance(batsman_name, str) and batsman_name
+
+        self._scorecard_registry[batsman_name] = (
+            Scorecard._default_factory_scorecard()
+        )
+
     def add_runs(self, batsman_name, runs):
         assert isinstance(batsman_name, str)
         assert (isinstance(runs, int) and 0 <= runs <= 6)
 
         if batsman_name not in self._scorecard_registry:
-            self._scorecard_registry[batsman_name] = \
-                            Scorecard._default_factory_scorecard()
+            self.add_player(batsman_name)
 
         if self._scorecard_registry[batsman_name]['not_out']:
             self._scorecard_registry[batsman_name]['runs_scored'] += runs
@@ -37,8 +43,7 @@ class Scorecard(object):
 
     def mark_out(self, batsman_name):
         if batsman_name not in self._scorecard_registry:
-            self._scorecard_registry[batsman_name] = \
-                Scorecard._default_factory_scorecard()
+            self.add_player(batsman_name)
 
         self._scorecard_registry[batsman_name]['balls_faced'] += 1
         self._scorecard_registry[batsman_name]['not_out'] = False
