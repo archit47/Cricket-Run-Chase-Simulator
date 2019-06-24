@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from app.constants import SCORE_KEYS, MAX_OVERS, TARGET_RUNS
 
 

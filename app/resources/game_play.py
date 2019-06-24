@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from app.constants import MAX_OVERS, TARGET_RUNS
 from app.resources.stochastic_schemes import RandomSampling, RouletteSelection
 from app.resources import Scorecard, Commentary
