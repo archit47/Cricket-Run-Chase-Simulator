@@ -1,4 +1,4 @@
-# Cricket-Run-Chase-Simulator
+# Cricket Run-Chase Simulator
 
 > _**Using Weighted Random Numbers**_
 
@@ -8,6 +8,7 @@ There are 2 broad algorithms that I have used for generating the random numbers:
 * [Fitness Proportionate Selection](https://en.wikipedia.org/wiki/Fitness_proportionate_selection), also known as, _**Roulette Wheel Selection**_
 
 
+The Random Generator class can provided at run-time via command line arguments. By default, Random Sampling technique is used for generating the scores. More on this is described below.
 
 ## Environment
 > Python 3 (preferred)
@@ -27,9 +28,19 @@ There are 2 broad algorithms that I have used for generating the random numbers:
     * source `venv/bin/activate`
 
 * Now lets run this project:
-    > __python -mapp.main__
-    
+    > __python -m app.main__
 
+* The program optionally takes command line argument: 
+    >  __python -m app.main --help__
+    
+* So, if you which to choose the random generator class for producing aleatory scores, then:
+
+    * For Random Sampling technique -
+    > __python -m app.main -rg 'random sampling'__
+    
+    * For Roulette Wheel Selection technique -
+    > __python -m app.main -rg 'roulette selection'__
+    
 
 
 
