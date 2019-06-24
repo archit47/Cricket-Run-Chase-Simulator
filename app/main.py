@@ -1,17 +1,20 @@
+#!/usr/bin/env python3
+
 import os
 from app.models import Player
 from app.resources import GamePlay
+import optparse
 
 
-BATTING_LINEUP = None
+def get_team():
+    """
+    Initializes the squad: the list of players in the order they are
+    expected to bat.
+    Uses the Player model to create each batsman with their given
+    scoring probabilities.
+    """
 
-
-def initialize_batting_lineup():
-    global BATTING_LINEUP
-
-    BATTING_LINEUP = list()
-
-    BATTING_LINEUP.extend([
+    batsmen_list = [
         Player('Kirat Boli', {
             '0': 5,
             '1': 30,
@@ -55,17 +58,23 @@ def initialize_batting_lineup():
             '6': 4,
             'OUT': 30,
         })
-    ])
+    ]
+
+    return batsmen_list
 
 
 def main():
-    initialize_batting_lineup()
+    """
+    Lets the game begin!
+    """
 
-    global BATTING_LINEUP  # not really required
+    batting_lineup = get_team()
 
-    game = GamePlay(BATTING_LINEUP, 'random sampling')
+    # new Game instance
+    game = GamePlay(batting_lineup, 'random sampling')
     game.execute_run_chase()
 
 
 if __name__ == '__main__':
     main()
+
