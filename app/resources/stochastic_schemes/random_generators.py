@@ -74,7 +74,7 @@ class RouletteSelection(GenericRandomNumberGenerator):
         super(RouletteSelection, self).__init__(scoring_probabilities)
         self.lower_bound = 0
         # set upper bound to the cumulative sum of the weights
-        self.upper_bound = self.distributed_probabilities.values()[-1]
+        self.upper_bound = list(self.distributed_probabilities.values())[-1]
 
     def _compute_distributed_scores(self):
         try:
