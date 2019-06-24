@@ -43,7 +43,7 @@ class GamePlay(object):
         elif random_technique == 'roulette selection':
             return RouletteSelection
         else:
-            raise Exception('Random Number Generator class cannot be resolved'
+            raise Exception('Random Number Generator class cannot be resolved '
                             'with the given string: {}'.format(random_gen_class))
 
     def execute_run_chase(self):
@@ -98,10 +98,13 @@ class GamePlay(object):
                     # <optional> remove the outgoing batsman from the prop-dist map
                     probabilities_distribution_map.pop(striker.name)
 
+                    wickets_in_hand -= 1
+
                     # get the next batsman
                     striker = next(batsmen)
 
-                    wickets_in_hand -= 1
+                    # add a new batsman on the scorecard
+                    self.scorecard.add_player(striker.name)
 
                     # compute the distributed probabilities for the new batter
                     probabilities_distribution_map[striker.name] = \
